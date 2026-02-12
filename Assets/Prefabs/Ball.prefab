@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 6922987103067713898}
   - component: {fileID: 9125819698312365226}
   - component: {fileID: 4747686966485133331}
-  - component: {fileID: -369179708589667718}
-  - component: {fileID: 5360003663929556528}
-  - component: {fileID: 6101723433486017228}
   - component: {fileID: -5021739352244112271}
+  - component: {fileID: 2565752146212260005}
+  - component: {fileID: 963477697769883228}
+  - component: {fileID: 9005505511719025686}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,9 +31,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067341007483519637}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.36, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5294118, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,8 +112,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 3e00b3ab5cae43140a4f0eca25256c27, type: 2}
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 4da9e9a43fed5dc46815d5b6f91181b2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -122,7 +122,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &4747686966485133331
 CircleCollider2D:
@@ -160,7 +160,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.00000023841858}
   m_Radius: 0.49999997
---- !u!114 &-369179708589667718
+--- !u!114 &-5021739352244112271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067341007483519637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237b94dcf31a60d419da9be8fc0c2d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  scoreText: {fileID: 0}
+--- !u!114 &2565752146212260005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +203,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5360003663929556528
+--- !u!114 &963477697769883228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Drop
   moveSpeed: 5
---- !u!114 &6101723433486017228
+--- !u!114 &9005505511719025686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,15 +228,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b8daaf0867cda4398bb49e46ab3748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepScore
---- !u!114 &-5021739352244112271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067341007483519637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 237b94dcf31a60d419da9be8fc0c2d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  spawnPoint: {fileID: 0}

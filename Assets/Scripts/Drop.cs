@@ -33,7 +33,6 @@ public class Drop : MonoBehaviour
     public void MoveInput(Vector2 moveDirection)
     {
         horizontal = moveDirection.normalized.x;
-
     }
     public void DropInput(bool dropState)
     {
