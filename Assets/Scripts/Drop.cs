@@ -1,28 +1,43 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Drop : MonoBehaviour
 {
-    public bool hasDropped = false; 
+    public float moveSpeed = 5f;
+    private float horizontal;
+    private bool hasDropped = false; 
     void Start()
     {
         
     }
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        transform.Translate(new Vector3 (horizontal, 0, 0) * moveSpeed * Time.deltaTime);
+        if (hasDropped)
         {
-            GetComponent<Slider>().enabled = false;
-            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().gravityScale = 1;
+            GetComponent<Rigidbody2D>().gravityScale = 1f;
+            Debug.Log("Dropping the object!");
+            hasDropped = false; 
         }
+    }
+    public void OnMove(InputValue value)
+    {
+        MoveInput(value.Get<Vector2>());
     }
     public void OnDrop(InputValue value)
     {
+        // Read drop input
         DropInput(value.isPressed);
     }
-    public void DropInput(bool DroppedState)
+    public void MoveInput(Vector2 moveDirection)
     {
-        hasDropped = DroppedState;
+        horizontal = moveDirection.normalized.x;
+
     }
+    public void DropInput(bool dropState)
+    {
+        hasDropped = dropState;
+    }
+
 }
