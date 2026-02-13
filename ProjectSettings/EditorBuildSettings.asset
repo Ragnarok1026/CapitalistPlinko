@@ -14,6 +14,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 1eeac914c7cbb8e4a9b9dc9daec37094
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 404feb295547e5e47ab06cd2246ebfd3
+  - enabled: 1
+    path: Assets/Scenes/Background.unity
+    guid: 3f41466df1c8c4c4eadc2fa42bfad20d
+  - enabled: 1
+    path: Assets/Scenes/Balls.unity
+    guid: 0594a51c867c11f4eb8b99501c3f7862
+  - enabled: 1
+    path: Assets/Scenes/Obstacles.unity
+    guid: 75a07a632c80473429db3d01b279ea56
+  - enabled: 1
+    path: Assets/Scenes/Rainbow.unity
+    guid: 987d74c0665992c4c83041ae8407ede3
+  - enabled: 1
+    path: Assets/Scenes/Rainbow 1.unity
+    guid: adae3d91d7cb66b4b8687a3b6cf3b9fb
+  - enabled: 1
+    path: Assets/Scenes/Rainbow 2.unity
+    guid: fd6fd5e44c1ae194d929c8a7af815110
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

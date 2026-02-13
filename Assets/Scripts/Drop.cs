@@ -7,6 +7,7 @@ public class Drop : MonoBehaviour
     public float moveSpeed = 5f;
     private float horizontal;
     private bool hasDropped = false; 
+    private bool isEscaped = false;
     void Start()
     {
         
