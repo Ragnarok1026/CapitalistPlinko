@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour
 {
     public GameObject pauseGame;
+    public GameObject shop;
     public GameObject resumeGame;
     void Start()
     {
@@ -32,7 +34,11 @@ public class MenuButtons : MonoBehaviour
     }
     public void Settings()
     {
-        SceneManager.LoadScene("Settings");
+        pauseGame.SetActive(true);
+    }
+    public void Back()
+    {
+        pauseGame.SetActive(false);
     }
     public void PauseGame()
     {
@@ -48,6 +54,10 @@ public class MenuButtons : MonoBehaviour
     }
     public void Shop()
     {
-        SceneManager.LoadScene("Shop");
+        shop.SetActive(true);
+    }
+    public void ExitShop()
+    {
+        shop.SetActive(false);
     }
 }

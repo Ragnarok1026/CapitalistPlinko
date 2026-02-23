@@ -9,6 +9,11 @@ TagManager:
   - 10 Points
   - 20 Points
   - 30 Points
+  - +30
+  - +50
+  - 3X
+  - 2X
+  - Multiplier
   layers:
   - Default
   - TransparentFX
