@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -11,8 +12,8 @@ public class PlayerManager : MonoBehaviour
         get { return _instance; }
     }
 
-    // Score variables
-    private int currentPoints;
+    [SerializeField]
+    private FloatSO scoreSO;
 
     public TextMeshProUGUI scoreText;
 
@@ -30,12 +31,12 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = "Score: " + currentPoints;
+        scoreText.text = "Score: " + scoreSO.Value;
     }
 
     public void AddPoints(int pointsToAdd)
     {
-        currentPoints += pointsToAdd;
-        scoreText.text = "Score: " + currentPoints;
+        scoreSO.Value += pointsToAdd;
+        scoreText.text = "Score: " + scoreSO.Value;
     }
 }

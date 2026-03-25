@@ -30,6 +30,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void ReturnToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
     public void Settings()
