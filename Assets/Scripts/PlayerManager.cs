@@ -31,12 +31,12 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = "Score: " + scoreSO.Value;
+        scoreText.text = "Points: " + scoreSO.Value;
     }
 
     public void AddPoints(int pointsToAdd)
     {
         scoreSO.Value += pointsToAdd;
-        scoreText.text = "Score: " + scoreSO.Value;
+        scoreText.text = "Points: " + scoreSO.Value;
     }
 }
