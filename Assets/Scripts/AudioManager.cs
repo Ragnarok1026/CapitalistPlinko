@@ -24,10 +24,12 @@ public class AudioManager : MonoBehaviour
     public void ChangeSoundVolume(float soundLevel)
     {
         masterMixer.SetFloat("MasterVol", soundLevel);
+        PlayerPrefs.SetFloat("MasterVol", soundLevel);
     }
 
     public void ChangeMusicVolume(float soundLevel)
     {
         masterMixer.SetFloat("MusicVol", soundLevel);
+        PlayerPrefs.SetFloat("MusicVol", soundLevel);
     }
 }
