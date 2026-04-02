@@ -10,6 +10,5 @@ public class FloatSO : ScriptableObject
 	{
 		get { return _value; }
 		set { _value = value; }
-	}
-
+    }
 }
