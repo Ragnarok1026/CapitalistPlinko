@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Color : MonoBehaviour
 {
-    public enum ColorType
+    public enum ItemType
     {
         Red,
         Orange,
@@ -13,31 +13,31 @@ public class Color : MonoBehaviour
         Purple
     }
 
-    public static int GetCost(ColorType color)
+    public static int GetCost (ItemType itemType)
     {
-        switch (color)
+        switch (itemType)
         {
             default:
-                case ColorType.Red:     return 200;
-                case ColorType.Orange:  return 300;
-                case ColorType.Yellow:  return 400;
-                case ColorType.Green:   return 0;
-                case ColorType.Blue:    return 500;
-                case ColorType.Purple:  return 600;
+                case ItemType.Red:     return 200;
+                case ItemType.Orange:  return 300;
+                case ItemType.Yellow:  return 400;
+                case ItemType.Green:   return 0;
+                case ItemType.Blue:    return 500;
+                case ItemType.Purple:  return 600;
         }
     }
 
-    public static Sprite GetSprite(ColorType color)
+    public static Sprite GetSprite (ItemType itemType)
     {
-        switch (color)
+        switch (itemType)
         {
             default:
-                case ColorType.Red:     return GameAssets.i.Red;
-                case ColorType.Orange:  return GameAssets.i.Orange;
-                case ColorType.Yellow:  return GameAssets.i.Yellow;
-                case ColorType.Green:   return GameAssets.i.Green;
-                case ColorType.Blue:    return GameAssets.i.Blue;
-                case ColorType.Purple:  return GameAssets.i.Purple;
+                case ItemType.Red:     return GameAssets.i.Red;
+                case ItemType.Orange:  return GameAssets.i.Orange;
+                case ItemType.Yellow:  return GameAssets.i.Yellow;
+                case ItemType.Green:   return GameAssets.i.Green;
+                case ItemType.Blue:    return GameAssets.i.Blue;
+                case ItemType.Purple:  return GameAssets.i.Purple;
         }
     }
 }
