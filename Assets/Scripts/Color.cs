@@ -41,14 +41,4 @@ public class Color : MonoBehaviour
                 case ItemType.Purple:  return GameAssets.i.Purple;
         }
     }
-
-    public static implicit operator UnityEngine.Color(Color v)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static implicit operator Color(UnityEngine.Color v)
-    {
-        throw new NotImplementedException();
-    }
 }
