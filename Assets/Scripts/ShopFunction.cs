@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShopFunction : MonoBehaviour
 {
     public FloatSO Money;
+    public PlayerManager playerManager;
 
     public GameObject Red;
     public GameObject RedSelect;
@@ -76,8 +77,8 @@ public class ShopFunction : MonoBehaviour
         if(Money.Value >= Color.GetCost(Color.ItemType.Red))
         {
             Debug.Log("Color Red bought!");
-            //PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - Color.GetCost(Color.ItemType.Red));
-            //PlayerPrefs.SetInt("Red", 1);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Red));
+
             isRedBought = true;
         }
        else
@@ -91,8 +92,7 @@ public class ShopFunction : MonoBehaviour
        if (Money.Value >= Color.GetCost(Color.ItemType.Orange))
         {
             Debug.Log("Color Orange bought!");
-            //PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - Color.GetCost(Color.ItemType.Orange));
-            //PlayerPrefs.SetInt("Orange", 1);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Orange));
             isOrangeBought = true;
         }
        else
@@ -106,8 +106,7 @@ public class ShopFunction : MonoBehaviour
         if (Money.Value >= Color.GetCost(Color.ItemType.Yellow))
         {
             Debug.Log("Color Yellow bought!");
-            //PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - Color.GetCost(Color.ItemType.Yellow));
-            //PlayerPrefs.SetInt("Yellow", 1);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Yellow));
             isYellowBought = true;
         }
        else
@@ -121,8 +120,7 @@ public class ShopFunction : MonoBehaviour
         if (Money.Value >= Color.GetCost(Color.ItemType.Blue))
         {
             Debug.Log("Color Blue bought!");
-            //PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - Color.GetCost(Color.ItemType.Blue));
-            //PlayerPrefs.SetInt("Blue", 1);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Blue));
             isBlueBought = true;
         }
         else
@@ -136,8 +134,7 @@ public class ShopFunction : MonoBehaviour
         if (Money.Value >= Color.GetCost(Color.ItemType.Purple))
         {
             Debug.Log("Color Purple bought!");
-            //PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - Color.GetCost(Color.ItemType.Purple));
-            //PlayerPrefs.SetInt("Purple", 1);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Purple));
             isPurpleBought = true;
         }
         else
