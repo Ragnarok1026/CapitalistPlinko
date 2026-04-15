@@ -22,6 +22,26 @@ public class ObstacleColors : MonoBehaviour
             {
                obstacle.material = redMaterial;
             }
+            if (colors.isOrangeActive)
+            {
+                obstacle.material = orangeMaterial;
+            }
+            if (colors.isYellowActive)
+            {
+                obstacle.material = yellowMaterial;
+            }
+            if (colors.isGreenActive)
+            {
+                obstacle.material = greenMaterial;
+            }
+            if (colors.isBlueActive)
+            {
+                obstacle.material = blueMaterial;
+            }
+            if (colors.isPurpleActive)
+            {
+                obstacle.material = purpleMaterial;
+            }
         } 
     }
 }
