@@ -4,64 +4,40 @@ using UnityEngine.UI;
 
 public class UI_Shop : MonoBehaviour
 {
-    private Transform container;
-    private Transform shopItemTemplate;
-    private IShopCustomer shopCustomer;
+    public bool isRedActive = false;
+    public bool isOrangeActive = false;
+    public bool isYellowActive = false;
+    public bool isGreenActive = true;
+    public bool isBlueActive = false;
+    public bool isPurpleActive = false;
 
-    private void Start()
+    public bool isRedBought = false;
+    public bool isOrangeBought = false;
+    public bool isYellowBought = false;
+    public bool isGreenBought = true;
+    public bool isBlueBought = false;
+    public bool isPurpleBought = false;
+    public void SavePlayer()
     {
-        CreateItemButton1(Color.ItemType.Red, Color.GetSprite(Color.ItemType.Red), "Red", Color.GetCost(Color.ItemType.Red), 0);
-        CreateItemButton1(Color.ItemType.Orange, Color.GetSprite(Color.ItemType.Orange), "Orange", Color.GetCost(Color.ItemType.Orange), 1);
-        CreateItemButton1(Color.ItemType.Yellow, Color.GetSprite(Color.ItemType.Yellow), "Yellow", Color.GetCost(Color.ItemType.Yellow), 2);
-        CreateItemButton1(Color.ItemType.Green, Color.GetSprite(Color.ItemType.Green), "Green", Color.GetCost(Color.ItemType.Green), 3);
-        CreateItemButton2(Color.ItemType.Blue, Color.GetSprite(Color.ItemType.Blue), "Blue", Color.GetCost(Color.ItemType.Blue), 4);
-        CreateItemButton3(Color.ItemType.Purple, Color.GetSprite(Color.ItemType.Purple), "Purple", Color.GetCost(Color.ItemType.Purple), 5);
-    }
-    private void Awake()
-    {
-        container = transform.Find("container");
-        shopItemTemplate = container.Find("shopItemTemplate");
-        shopItemTemplate.gameObject.SetActive(false);
+       SaveSystem.SavePlayer(this);
     }
 
-    public void CreateItemButton1(Color.ItemType itemType, Sprite itemSprite, string itemName, int itemcost, int positionIndex)
+    public void LoadPlayer()
     {
-        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
-        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
+        PlayerData data = SaveSystem.LoadPlayer();
 
-        shopItemRectTransform.anchoredPosition = new Vector2(450 * positionIndex, 0);
+        isRedActive = data.isRedActive;
+        isOrangeActive = data.isOrangeActive;
+        isYellowActive = data.isYellowActive;
+        isGreenActive = data.isGreenActive;
+        isBlueActive = data.isBlueActive;
+        isPurpleActive = data.isPurpleActive;
 
-        shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemcost.ToString());
-
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
-        shopItemTransform.gameObject.SetActive(true);
+        isRedBought = data.isRedActive;
+        isOrangeBought = data.isOrangeActive;
+        isYellowBought = data.isYellowActive;
+        isGreenBought = data.isGreenActive;
+        isBlueBought = data.isBlueActive;
+        isPurpleBought = data.isPurpleActive;
     }
-    public void CreateItemButton2(Color.ItemType itemType, Sprite itemSprite, string itemName, int itemcost, int positionIndex)
-    {
-        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
-        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
-
-        shopItemRectTransform.anchoredPosition = new Vector2(50 * positionIndex, -50 * positionIndex);
-
-        shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemcost.ToString());
-
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
-        shopItemTransform.gameObject.SetActive(true);
-    }
-    public void CreateItemButton3(Color.ItemType itemType, Sprite itemSprite, string itemName, int itemcost, int positionIndex)
-    {
-        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
-        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
-
-        shopItemRectTransform.anchoredPosition = new Vector2(230 * positionIndex, -40 * positionIndex);
-
-        shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemcost.ToString());
-
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
-        shopItemTransform.gameObject.SetActive(true);
-    }
-
 }

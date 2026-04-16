@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
+    public UI_Shop shop;
     public bool isRedActive;
     public bool isOrangeActive;
     public bool isYellowActive;
@@ -10,13 +11,13 @@ public class PlayerData
     public bool isBlueActive;
     public bool isPurpleActive;
 
-    public PlayerData (Activate activate)
+    public PlayerData (UI_Shop shop)
     {
-        isRedActive = activate.isRedActive;
-        isOrangeActive = activate.isOrangeActive;
-        isYellowActive = activate.isYellowActive;
-        isGreenActive = activate.isGreenActive;
-        isBlueActive = activate.isBlueActive;
-        isPurpleActive = activate.isPurpleActive;
+        isRedActive = shop.isRedActive;
+        isOrangeActive = shop.isOrangeActive;
+        isYellowActive = shop.isYellowActive;
+        isGreenActive = shop.isGreenActive;
+        isBlueActive = shop.isBlueActive;
+        isPurpleActive = shop.isPurpleActive;
     }
 }

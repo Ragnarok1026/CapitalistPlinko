@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Activate : MonoBehaviour
 {
+    public UI_Shop shop;
     public GameObject ActiveRed;
     public GameObject ActiveOrange;
     public GameObject ActiveYellow;
@@ -16,19 +17,19 @@ public class Activate : MonoBehaviour
     public GameObject Blue;
     public GameObject Purple;
 
-    public bool isRedActive = false;
-    public bool isOrangeActive = false;
-    public bool isYellowActive = false;
-    public bool isGreenActive = true;
-    public bool isBlueActive = false;
-    public bool isPurpleActive = false;
+    public bool isRedActive;
+    public bool isOrangeActive;
+    public bool isYellowActive;
+    public bool isGreenActive;
+    public bool isBlueActive;
+    public bool isPurpleActive;
     void Start()
     {
         
     }
     void Update()
     {
-        if (isRedActive == true)
+        if (shop.isRedActive == true)
         {
             ActiveRed.SetActive(true);
             ActiveOrange.SetActive(false);
@@ -37,7 +38,7 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(false);
             ActivePurple.SetActive(false);
         }
-        if (isOrangeActive == true)
+        if (shop.isOrangeActive == true)
         {
             ActiveRed.SetActive(false);
             ActiveOrange.SetActive(true);
@@ -46,7 +47,7 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(false);
             ActivePurple.SetActive(false);
         }
-        if (isYellowActive == true)
+        if (shop.isYellowActive == true)
         {
             ActiveRed.SetActive(false);
             ActiveOrange.SetActive(false);
@@ -55,7 +56,7 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(false);
             ActivePurple.SetActive(false);
         }
-        if (isGreenActive == true)
+        if (shop.isGreenActive == true)
         {
             ActiveRed.SetActive(false);
             ActiveOrange.SetActive(false);
@@ -64,7 +65,7 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(false);
             ActivePurple.SetActive(false);
         }
-        if (isBlueActive == true)
+        if (shop.isBlueActive == true)
         {
             ActiveRed.SetActive(false);
             ActiveOrange.SetActive(false);
@@ -73,7 +74,7 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(true);
             ActivePurple.SetActive(false);
         }
-        if (isPurpleActive == true)
+        if (shop.isPurpleActive == true)
         {
             ActiveRed.SetActive(false);
             ActiveOrange.SetActive(false);
@@ -82,60 +83,5 @@ public class Activate : MonoBehaviour
             ActiveBlue.SetActive(false);
             ActivePurple.SetActive(true);
         }
-    }
-
-    public void ActivateRed()
-    {
-        isRedActive = true;
-        isOrangeActive = false;
-        isYellowActive = false;
-        isGreenActive = false;
-        isBlueActive = false;
-        isPurpleActive = false;
-    }
-    public void ActivateOrange()
-    {
-        isRedActive = false;
-        isOrangeActive = true;     
-        isYellowActive = false;
-        isGreenActive = false;
-        isBlueActive = false;
-        isPurpleActive = false;
-    }
-    public void ActivateYellow()
-    {
-        isRedActive = false;
-        isOrangeActive = false;
-        isYellowActive = true;    
-        isGreenActive = false;
-        isBlueActive = false;
-        isPurpleActive = false;
-    }
-    public void ActivateGreen()
-    {
-        isRedActive = false;
-        isOrangeActive = false;
-        isYellowActive = false;
-        isGreenActive = true;
-        isBlueActive = false;
-        isPurpleActive = false;
-    }
-    public void ActivateBlue()
-    {
-        isRedActive = false;
-        isOrangeActive = false;
-        isYellowActive = false;
-        isGreenActive = false;
-        isBlueActive = true;      
-        isPurpleActive = false;
-    }
-    public void ActivatePurple()
-    {
-        isRedActive = false;
-        isOrangeActive = false;
-        isYellowActive = false;
-        isGreenActive = false;
-        isBlueActive = false;
-        isPurpleActive = true;      
     }
 }
