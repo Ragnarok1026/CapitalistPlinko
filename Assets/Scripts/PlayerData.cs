@@ -3,21 +3,50 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public UI_Shop shop;
-    public bool isRedActive;
-    public bool isOrangeActive;
-    public bool isYellowActive;
-    public bool isGreenActive;
-    public bool isBlueActive;
-    public bool isPurpleActive;
+    public bool redBought;
+    public bool orangeBought;
+    public bool yellowBought;
+    public bool greenBought;
+    public bool blueBought;
+    public bool purpleBought;
 
-    public PlayerData (UI_Shop shop)
+    public bool redActivated;
+    public bool orangeActivated;
+    public bool yellowActivated;
+    public bool greenActivated;
+    public bool blueActivated;
+    public bool purpleActivated;
+
+    public PlayerData(Player player)
     {
-        isRedActive = shop.isRedActive;
-        isOrangeActive = shop.isOrangeActive;
-        isYellowActive = shop.isYellowActive;
-        isGreenActive = shop.isGreenActive;
-        isBlueActive = shop.isBlueActive;
-        isPurpleActive = shop.isPurpleActive;
+        redBought = player.redBought;
+        orangeBought = player.orangeBought;
+        yellowBought = player.yellowBought;
+        greenBought = player.greenBought;
+        blueBought = player.blueBought;
+        purpleBought = player.purpleBought;
+
+        redActivated = player.redActivated;
+        orangeActivated = player.orangeActivated;
+        yellowActivated = player.yellowActivated;
+        greenActivated = player.greenActivated;
+        blueActivated = player.blueActivated;
+        purpleActivated = player.purpleActivated;
+    }
+    public PlayerData()
+    {
+        redBought = false;
+        orangeBought = false;
+        yellowBought = false;
+        greenBought = true;
+        blueBought = false;
+        purpleBought = false;
+
+        redActivated = false;
+        orangeActivated = false;
+        yellowActivated = false;
+        greenActivated = true;
+        blueActivated = false;
+        purpleActivated = false;
     }
 }

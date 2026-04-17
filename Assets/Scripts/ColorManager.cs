@@ -1,7 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 public class ColorManager : MonoBehaviour
 {
+    public FloatSO scoreSO;
+    public PlayerManager playerManager;
+    public Color color;
+    public GameObject player;
+
     public GameObject redBuy;
     public GameObject redSelect;
     public GameObject redActive;
@@ -21,54 +28,53 @@ public class ColorManager : MonoBehaviour
     public GameObject purpleSelect;
     public GameObject purpleActive;
 
-    private bool redBought = false;
-    private bool orangeBought = false;
-    private bool yellowBought = false;
-    private bool greenBought = true;
-    private bool blueBought = false;
-    private bool purpleBought = false;
+    public Material redMat;
+    public Material orangeMat;
+    public Material yellowMat;
+    public Material greenMat;
+    public Material blueMat;
+    public Material purpleMat;
 
-    public bool redActivated = false;
-    public bool orangeActivated = false;
-    public bool yellowActivated = false;
-    public bool greenActivated = true;
-    public bool blueActivated = false;
-    public bool purpleActivated = false;
+    void Start()
+    {
+
+    }
     void Update()
     {
         // code to change buttons to select based on the bools
-        if (redBought == true)
+        if (Player.instance.redBought == true)
         {
             redBuy.SetActive(false);
             redSelect.SetActive(true);
+            
         }
-        if (orangeBought == true)
+        if (Player.instance.orangeBought == true)
         {
             orangeBuy.SetActive(false);
             orangeSelect.SetActive(true);
         }
-        if (yellowBought == true)
+        if (Player.instance.yellowBought == true)
         {
             yellowBuy.SetActive(false);
             yellowSelect.SetActive(true);
         }
-        if (greenBought == true)
+        if (Player.instance.greenBought == true)
         {
             greenBuy.SetActive(false);
             greenSelect.SetActive(true);
         }
-        if (blueBought == true)
+        if (Player.instance.blueBought == true)
         {
             blueBuy.SetActive(false);
             blueSelect.SetActive(true);
         }
-        if (purpleBought == true)
+        if (Player.instance.purpleBought == true)
         {
             purpleBuy.SetActive(false);
             purpleSelect.SetActive(true);
         }
         // code to change buttons to active based on the bools
-        if (redActivated == true)
+        if (Player.instance.redActivated == true)
         {
             redSelect.SetActive(false);
             redActive.SetActive(true);
@@ -77,8 +83,10 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
+            player.GetComponent<SpriteRenderer>().material = redMat;
+
         }
-        if (orangeActivated == true)
+        if (Player.instance.orangeActivated == true)
         {
             orangeSelect.SetActive(false);
             redActive.SetActive(false);
@@ -87,8 +95,9 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
+            player.GetComponent<SpriteRenderer>().material = orangeMat;
         }
-        if (yellowActivated == true)
+        if (Player.instance.yellowActivated == true)
         {
             yellowSelect.SetActive(false);
             redActive.SetActive(false);
@@ -97,8 +106,9 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
+            player.GetComponent<SpriteRenderer>().material = yellowMat;
         }
-        if (greenActivated == true)
+        if (Player.instance.greenActivated == true)
         {
             greenSelect.SetActive(false);
             redActive.SetActive(false);
@@ -107,8 +117,9 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(true);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
+            player.GetComponent<SpriteRenderer>().material = greenMat;
         }
-        if (blueActivated == true)
+        if (Player.instance.blueActivated == true)
         {
             blueSelect.SetActive(false);
             redActive.SetActive(false);
@@ -117,8 +128,9 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(true);
             purpleActive.SetActive(false);
+            player.GetComponent<SpriteRenderer>().material = blueMat;
         }
-        if (purpleActivated == true)
+        if (Player.instance.purpleActivated == true)
         {
             purpleSelect.SetActive(false);
             redActive.SetActive(false);
@@ -127,81 +139,138 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(true);
+            player.GetComponent<SpriteRenderer>().material = purpleMat;
         }
     }
     public void buyRed()
     {
-        redBought = true;
+        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Red))
+        {
+            scoreSO.Value -= Color.GetCost(Color.ItemType.Red);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Red));
+            Player.instance.redBought = true;
+            Player.instance.SavePlayer();
+        }
+        else
+        {
+            Debug.Log("Come back when your a little......Richer");
+        }
     }
     public void buyOrange()
     {
-        orangeBought = true;
+        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Orange))
+        {
+            scoreSO.Value -= Color.GetCost(Color.ItemType.Orange);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Orange));
+            Player.instance.orangeBought = true;
+            Player.instance.SavePlayer();
+        }
+        else
+        {
+            Debug.Log("Come back when your a little......Richer");
+        }
     }
     public void buyYellow()
     {
-        yellowBought = true;
+        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Yellow))
+        {
+            scoreSO.Value -= Color.GetCost(Color.ItemType.Yellow);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Yellow));
+            Player.instance.yellowBought = true;
+            Player.instance.SavePlayer();
+        }
+        else
+        {
+            Debug.Log("Come back when your a little......Richer");
+        }
     }
     public void buyBlue()
     {
-        blueBought = true;
+        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Blue))
+        {
+            scoreSO.Value -= Color.GetCost(Color.ItemType.Blue);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Blue));
+            Player.instance.blueBought = true;
+            Player.instance.SavePlayer();
+        }
+        else
+        {
+            Debug.Log("Come back when your a little......Richer");
+        }
     }
     public void buyPurple()
     {
-        purpleBought = true;
+        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Purple))
+        {
+            scoreSO.Value -= Color.GetCost(Color.ItemType.Purple);
+            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Purple));
+            Player.instance.purpleBought = true;
+            Player.instance.SavePlayer();
+        }
+        else
+        {
+            Debug.Log("Come back when your a little......Richer");
+        }
     }
 
     public void activateRed()
     {
-        redActivated = true;
-        orangeActivated = false;
-        yellowActivated = false;
-        greenActivated = false;
-        blueActivated = false;
-        purpleActivated = false;
+        Player.instance.redActivated = true;
+        Player.instance.orangeActivated = false;
+        Player.instance.yellowActivated = false;
+        Player.instance.greenActivated = false;
+        Player.instance.blueActivated = false;
+        Player.instance.purpleActivated = false;
+        Player.instance.SavePlayer();
     }
     public void activateOrange()
     {
-        redActivated = false;
-        orangeActivated = true;
-        yellowActivated = false;
-        greenActivated = false;
-        blueActivated = false;
-        purpleActivated = false;
+        Player.instance.redActivated = false;
+        Player.instance.orangeActivated = true;
+        Player.instance.yellowActivated = false;
+        Player.instance.greenActivated = false;
+        Player.instance.blueActivated = false;
+        Player.instance.purpleActivated = false;
+        Player.instance.SavePlayer();
     }
     public void activateYellow()
     {
-        redActivated = false;
-        orangeActivated = false;
-        yellowActivated = true;
-        greenActivated = false;
-        blueActivated = false;
-        purpleActivated = false;
+        Player.instance.redActivated = false;
+        Player.instance.orangeActivated = false;
+        Player.instance.yellowActivated = true;
+        Player.instance.greenActivated = false;
+        Player.instance.blueActivated = false;
+        Player.instance.purpleActivated = false;
+        Player.instance.SavePlayer();
     }
     public void activateGreen()
     {
-        redActivated = false;
-        orangeActivated = false;
-        yellowActivated = false;
-        greenActivated = true;
-        blueActivated = false;
-        purpleActivated = false;
+        Player.instance.redActivated = false;
+        Player.instance.orangeActivated = false;
+        Player.instance.yellowActivated = false;
+        Player.instance.greenActivated = true;
+        Player.instance.blueActivated = false;
+        Player.instance.purpleActivated = false;
+        Player.instance.SavePlayer();
     }
     public void activateBlue()
     {
-        redActivated = false;
-        orangeActivated = false;
-        yellowActivated = false;
-        greenActivated = false;
-        blueActivated = true;
-        purpleActivated = false;
+        Player.instance.redActivated = false;
+        Player.instance.orangeActivated = false;
+        Player.instance.yellowActivated = false;
+        Player.instance.greenActivated = false;
+        Player.instance.blueActivated = true;
+        Player.instance.purpleActivated = false;
+        Player.instance.SavePlayer();
     }
     public void activatePurple()
     {
-        redActivated = false;
-        orangeActivated = false;
-        yellowActivated = false;
-        greenActivated = false;
-        blueActivated = false;
-        purpleActivated = true;
+        Player.instance.redActivated = false;
+        Player.instance.orangeActivated = false;
+        Player.instance.yellowActivated = false;
+        Player.instance.greenActivated = false;
+        Player.instance.blueActivated = false;
+        Player.instance.purpleActivated = true;
+        Player.instance.SavePlayer();
     }
 }
