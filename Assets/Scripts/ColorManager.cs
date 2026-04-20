@@ -46,32 +46,61 @@ public class ColorManager : MonoBehaviour
         {
             redBuy.SetActive(false);
             redSelect.SetActive(true);
-            
+        }
+        else if (Player.instance.redBought == false)
+        {
+            redBuy.SetActive(true);
+            redSelect.SetActive(false);
         }
         if (Player.instance.orangeBought == true)
         {
             orangeBuy.SetActive(false);
             orangeSelect.SetActive(true);
         }
+        else if (Player.instance.orangeBought == false)
+        {
+            orangeBuy.SetActive(true);
+            orangeSelect.SetActive(false);
+        }
         if (Player.instance.yellowBought == true)
         {
             yellowBuy.SetActive(false);
             yellowSelect.SetActive(true);
+        }
+        else if (Player.instance.yellowBought == false)
+        {
+            yellowBuy.SetActive(true);
+            yellowSelect.SetActive(false);
         }
         if (Player.instance.greenBought == true)
         {
             greenBuy.SetActive(false);
             greenSelect.SetActive(true);
         }
+        else if (Player.instance.greenBought == false)
+        {
+            greenBuy.SetActive(true);
+            greenSelect.SetActive(false);
+        }
         if (Player.instance.blueBought == true)
         {
             blueBuy.SetActive(false);
             blueSelect.SetActive(true);
         }
+        else if (Player.instance.blueBought == false)
+        {
+            blueBuy.SetActive(true);
+            blueSelect.SetActive(false);
+        }
         if (Player.instance.purpleBought == true)
         {
             purpleBuy.SetActive(false);
             purpleSelect.SetActive(true);
+        }
+        else if (Player.instance.purpleBought == false)
+        {
+            purpleBuy.SetActive(true);
+            purpleSelect.SetActive(false);
         }
         // code to change buttons to active based on the bools
         if (Player.instance.redActivated == true)
@@ -146,7 +175,7 @@ public class ColorManager : MonoBehaviour
     {
         if (scoreSO.Value >= Color.GetCost(Color.ItemType.Red))
         {
-            scoreSO.Value -= Color.GetCost(Color.ItemType.Red);
+            
             playerManager.AddPoints(-Color.GetCost(Color.ItemType.Red));
             Player.instance.redBought = true;
             Player.instance.SavePlayer();
@@ -160,7 +189,7 @@ public class ColorManager : MonoBehaviour
     {
         if (scoreSO.Value >= Color.GetCost(Color.ItemType.Orange))
         {
-            scoreSO.Value -= Color.GetCost(Color.ItemType.Orange);
+            
             playerManager.AddPoints(-Color.GetCost(Color.ItemType.Orange));
             Player.instance.orangeBought = true;
             Player.instance.SavePlayer();
@@ -174,7 +203,7 @@ public class ColorManager : MonoBehaviour
     {
         if (scoreSO.Value >= Color.GetCost(Color.ItemType.Yellow))
         {
-            scoreSO.Value -= Color.GetCost(Color.ItemType.Yellow);
+           
             playerManager.AddPoints(-Color.GetCost(Color.ItemType.Yellow));
             Player.instance.yellowBought = true;
             Player.instance.SavePlayer();
@@ -188,7 +217,7 @@ public class ColorManager : MonoBehaviour
     {
         if (scoreSO.Value >= Color.GetCost(Color.ItemType.Blue))
         {
-            scoreSO.Value -= Color.GetCost(Color.ItemType.Blue);
+            
             playerManager.AddPoints(-Color.GetCost(Color.ItemType.Blue));
             Player.instance.blueBought = true;
             Player.instance.SavePlayer();
@@ -202,7 +231,7 @@ public class ColorManager : MonoBehaviour
     {
         if (scoreSO.Value >= Color.GetCost(Color.ItemType.Purple))
         {
-            scoreSO.Value -= Color.GetCost(Color.ItemType.Purple);
+            
             playerManager.AddPoints(-Color.GetCost(Color.ItemType.Purple));
             Player.instance.purpleBought = true;
             Player.instance.SavePlayer();

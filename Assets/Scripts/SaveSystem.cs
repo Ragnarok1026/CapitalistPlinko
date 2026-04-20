@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public static class SaveSystem
 {
@@ -35,6 +36,19 @@ public static class SaveSystem
             PlayerData data = new PlayerData();
             Debug.Log("Save file not found in " + path);
             return data;
+        }
+    }
+    public static void DeletePlayerData()
+    {
+        string path = Application.persistentDataPath + "/player.dat";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Player data deleted.");
+        }
+        else
+        {
+            Debug.Log("No player data found to delete.");
         }
     }
 }

@@ -28,7 +28,7 @@ public class ShopManager : MonoBehaviour
         SceneManager.LoadScene("Rainbow");
     }
     public void ReturnToMenu()
-        {
+    {
             SceneManager.LoadScene("MainMenu");
     }
 }

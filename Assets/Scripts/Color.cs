@@ -19,7 +19,7 @@ public class Color : MonoBehaviour
         switch (itemType)
         {
             default:
-                case ItemType.Red:     return 200;
+                case ItemType.Red:     return 250;
                 case ItemType.Orange:  return 300;
                 case ItemType.Yellow:  return 400;
                 case ItemType.Green:   return 0;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
     public bool blueActivated;
     public bool purpleActivated;
     public static Player instance;
+    public ColorManager colorManager;
+    public PlayerManager playerManager;
 
     private void Awake()
     {
@@ -58,5 +61,24 @@ public class Player : MonoBehaviour
         instance.greenActivated = data.greenActivated;
         instance.blueActivated = data.blueActivated;
         instance.purpleActivated = data.purpleActivated;
+    }
+
+    public void ResetPlayer()
+    {
+        instance.redBought = false;
+        instance.orangeBought = false;
+        instance.yellowBought = false;
+        instance.greenBought = true;
+        instance.blueBought = false;
+        instance.purpleBought = false;
+        instance.redActivated = false;
+        instance.orangeActivated = false;
+        instance.yellowActivated = false;
+        instance.greenActivated = true;
+        instance.blueActivated = false;
+        instance.purpleActivated = false;
+        colorManager.scoreSO.Value = 0;
+        playerManager.scoreText.text = "Points: " + colorManager.scoreSO.Value;
+        SavePlayer();
     }
 }
