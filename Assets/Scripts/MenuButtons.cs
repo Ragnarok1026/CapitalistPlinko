@@ -18,6 +18,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void StartGame()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Game");
     }
     public void QuitGame()

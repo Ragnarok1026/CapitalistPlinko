@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
     public bool blueActivated;
     public bool purpleActivated;
     public static Player instance;
-    public ColorManager colorManager;
-    public PlayerManager playerManager;
 
     private void Awake()
     {
@@ -77,8 +75,10 @@ public class Player : MonoBehaviour
         instance.greenActivated = true;
         instance.blueActivated = false;
         instance.purpleActivated = false;
-        colorManager.scoreSO.Value = 0;
-        playerManager.scoreText.text = "Points: " + colorManager.scoreSO.Value;
-        SavePlayer();
+        PlayerManager.Instance.scoreSO.Value = 0;
+        PlayerManager.Instance.scoreText.text = "Points: " + PlayerManager.Instance.scoreSO.Value;
+        SaveSystem.SavePlayer(instance);
+        Debug.Log(PlayerManager.Instance.scoreSO.Value);
+        Debug.Log(PlayerManager.Instance);
     }
 }

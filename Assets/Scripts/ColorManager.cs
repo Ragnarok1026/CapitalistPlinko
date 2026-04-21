@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 public class ColorManager : MonoBehaviour
 {
-    public FloatSO scoreSO;
+    private static ColorManager instance;
+    public static ColorManager Instance
+        {
+        get { return instance; }
+    }
     public PlayerManager playerManager;
     public Color color;
     public GameObject player;
@@ -37,10 +41,25 @@ public class ColorManager : MonoBehaviour
 
     void Start()
     {
-
+       
     }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            
+            
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
+        
         // code to change buttons to select based on the bools
         if (Player.instance.redBought == true)
         {
@@ -173,10 +192,10 @@ public class ColorManager : MonoBehaviour
     }
     public void buyRed()
     {
-        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Red))
+        if (PlayerManager.Instance.scoreSO.Value >= Color.GetCost(Color.ItemType.Red))
         {
-            
-            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Red));
+
+            PlayerManager.Instance.AddPoints(-Color.GetCost(Color.ItemType.Red));
             Player.instance.redBought = true;
             Player.instance.SavePlayer();
         }
@@ -187,10 +206,10 @@ public class ColorManager : MonoBehaviour
     }
     public void buyOrange()
     {
-        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Orange))
+        if (PlayerManager.Instance.scoreSO.Value >= Color.GetCost(Color.ItemType.Orange))
         {
-            
-            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Orange));
+
+            PlayerManager.Instance.AddPoints(-Color.GetCost(Color.ItemType.Orange));
             Player.instance.orangeBought = true;
             Player.instance.SavePlayer();
         }
@@ -201,10 +220,10 @@ public class ColorManager : MonoBehaviour
     }
     public void buyYellow()
     {
-        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Yellow))
+        if (PlayerManager.Instance.scoreSO.Value >= Color.GetCost(Color.ItemType.Yellow))
         {
-           
-            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Yellow));
+
+            PlayerManager.Instance.AddPoints(-Color.GetCost(Color.ItemType.Yellow));
             Player.instance.yellowBought = true;
             Player.instance.SavePlayer();
         }
@@ -215,10 +234,10 @@ public class ColorManager : MonoBehaviour
     }
     public void buyBlue()
     {
-        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Blue))
+        if (PlayerManager.Instance.scoreSO.Value >= Color.GetCost(Color.ItemType.Blue))
         {
-            
-            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Blue));
+
+            PlayerManager.Instance.AddPoints(-Color.GetCost(Color.ItemType.Blue));
             Player.instance.blueBought = true;
             Player.instance.SavePlayer();
         }
@@ -229,10 +248,10 @@ public class ColorManager : MonoBehaviour
     }
     public void buyPurple()
     {
-        if (scoreSO.Value >= Color.GetCost(Color.ItemType.Purple))
+        if (PlayerManager.Instance.scoreSO.Value >= Color.GetCost(Color.ItemType.Purple))
         {
-            
-            playerManager.AddPoints(-Color.GetCost(Color.ItemType.Purple));
+
+            PlayerManager.Instance.AddPoints(-Color.GetCost(Color.ItemType.Purple));
             Player.instance.purpleBought = true;
             Player.instance.SavePlayer();
         }

@@ -300,7 +300,6 @@ GameObject:
   m_Component:
   - component: {fileID: 846686456}
   - component: {fileID: 846686458}
-  - component: {fileID: 846686457}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1317,7 +1316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c805b15df8e8b58408fad12080b52b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorManager
-  scoreSO: {fileID: 11400000, guid: f30d8144da315fc40a6818fb5dedbeaa, type: 2}
   playerManager: {fileID: 1473818045}
   color: {fileID: 90631670}
   player: {fileID: 1473818041}
@@ -2222,50 +2220,6 @@ Transform:
   - {fileID: 1129884947}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &218908653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 218908654}
-  - component: {fileID: 218908655}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &218908654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218908653}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1734828963}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &218908655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218908653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ae007397d8e0044bc061562b83ee05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UI_Shop
 --- !u!1 &226766766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,8 +2732,6 @@ MonoBehaviour:
   greenActivated: 1
   blueActivated: 0
   purpleActivated: 0
-  colorManager: {fileID: 90631669}
-  playerManager: {fileID: 1473818045}
 --- !u!4 &252650969
 Transform:
   m_ObjectHideFlags: 0
@@ -4566,7 +4518,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0}
+  m_BackGroundColor: {r: 0, g: 1, b: 0.13757372, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7306,18 +7258,6 @@ Transform:
   - {fileID: 1160098773}
   m_Father: {fileID: 269931522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &846686457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28575719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdf120aa9160b39478df58d1a204ffa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundColor
 --- !u!212 &846686458
 SpriteRenderer:
   serializedVersion: 2
@@ -8533,9 +8473,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 252650968}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: ResetPlayer
+      - m_Target: {fileID: 1473818045}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: ResetPoints
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14852,7 +14792,6 @@ GameObject:
   - component: {fileID: 1005786140}
   - component: {fileID: 1473818043}
   - component: {fileID: 1473818042}
-  - component: {fileID: 1473818050}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -15074,18 +15013,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1473818050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473818041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eaf7a25d56e162419e7e0fcd625434e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BallColor
 --- !u!1 &1478261007
 GameObject:
   m_ObjectHideFlags: 0
@@ -17397,7 +17324,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1485622781}
-  - {fileID: 218908654}
   - {fileID: 90631668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19103,7 +19029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871982029
 RectTransform:
   m_ObjectHideFlags: 0

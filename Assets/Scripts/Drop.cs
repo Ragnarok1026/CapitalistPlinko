@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Drop : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private float horizontal;
-    private bool hasDropped = false; 
-    private bool isEscaped = false;
+    private bool hasDropped = false;
+
     void Start()
     {
         

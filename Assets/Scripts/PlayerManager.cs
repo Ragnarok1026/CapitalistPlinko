@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     [SerializeField]
-    private FloatSO scoreSO;
+    public FloatSO scoreSO;
 
     public TextMeshProUGUI scoreText;
 
@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+           Destroy(this.gameObject);
         }
         else
         {
@@ -38,5 +38,9 @@ public class PlayerManager : MonoBehaviour
     {
         scoreSO.Value += pointsToAdd;
         scoreText.text = "Points: " + scoreSO.Value;
+    }
+    public void ResetPoints()
+    {
+        Player.instance.ResetPlayer();
     }
 }
