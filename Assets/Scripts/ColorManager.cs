@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 public class ColorManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class ColorManager : MonoBehaviour
     }
     public PlayerManager playerManager;
     public Color color;
-    public GameObject player;
+    public GameObject playerGame;
+    public Image player;
 
     public GameObject redBuy;
     public GameObject redSelect;
@@ -131,7 +133,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
-            player.GetComponent<SpriteRenderer>().material = redMat;
+            player.color = UnityEngine.Color.red;
+            playerGame.GetComponent<SpriteRenderer>().material = redMat;
 
         }
         if (Player.instance.orangeActivated == true)
@@ -143,7 +146,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
-            player.GetComponent<SpriteRenderer>().material = orangeMat;
+            player.color = new UnityEngine.Color(1f, 0.5f, 0f);
+            playerGame.GetComponent<SpriteRenderer>().material = orangeMat;
         }
         if (Player.instance.yellowActivated == true)
         {
@@ -154,7 +158,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
-            player.GetComponent<SpriteRenderer>().material = yellowMat;
+            player.color = UnityEngine.Color.yellow;
+            playerGame.GetComponent<SpriteRenderer>().material = yellowMat;
         }
         if (Player.instance.greenActivated == true)
         {
@@ -165,7 +170,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(true);
             blueActive.SetActive(false);
             purpleActive.SetActive(false);
-            player.GetComponent<SpriteRenderer>().material = greenMat;
+            player.color = UnityEngine.Color.green;
+            playerGame.GetComponent<SpriteRenderer>().material = greenMat;
         }
         if (Player.instance.blueActivated == true)
         {
@@ -176,7 +182,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(true);
             purpleActive.SetActive(false);
-            player.GetComponent<SpriteRenderer>().material = blueMat;
+            player.color = UnityEngine.Color.blue;
+            playerGame.GetComponent<SpriteRenderer>().material = blueMat;
         }
         if (Player.instance.purpleActivated == true)
         {
@@ -187,7 +194,8 @@ public class ColorManager : MonoBehaviour
             greenActive.SetActive(false);
             blueActive.SetActive(false);
             purpleActive.SetActive(true);
-            player.GetComponent<SpriteRenderer>().material = purpleMat;
+            player.color = new UnityEngine.Color(0.5f, 0f, 0.5f);
+            playerGame.GetComponent<SpriteRenderer>().material = purpleMat;
         }
     }
     public void buyRed()

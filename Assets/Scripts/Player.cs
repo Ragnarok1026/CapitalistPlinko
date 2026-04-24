@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public bool greenActivated;
     public bool blueActivated;
     public bool purpleActivated;
+
+    public float scoreSO;
     public static Player instance;
 
     private void Awake()
@@ -24,7 +26,6 @@ public class Player : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadPlayer();
         }
         else
         {
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-       
+            LoadPlayer();
     }
     public void SavePlayer()
     {
@@ -52,6 +53,9 @@ public class Player : MonoBehaviour
         instance.greenBought = data.greenBought;
         instance.blueBought = data.blueBought;
         instance.purpleBought = data.purpleBought;
+
+        instance.scoreSO = data.scoreSO;
+        PlayerManager.Instance.scoreSO.Value = data.scoreSO;
 
         instance.redActivated = data.redActivated;
         instance.orangeActivated = data.orangeActivated;
@@ -75,10 +79,12 @@ public class Player : MonoBehaviour
         instance.greenActivated = true;
         instance.blueActivated = false;
         instance.purpleActivated = false;
+        instance.scoreSO = 0;
         PlayerManager.Instance.scoreSO.Value = 0;
         PlayerManager.Instance.scoreText.text = "Points: " + PlayerManager.Instance.scoreSO.Value;
         SaveSystem.SavePlayer(instance);
         Debug.Log(PlayerManager.Instance.scoreSO.Value);
         Debug.Log(PlayerManager.Instance);
+
     }
 }

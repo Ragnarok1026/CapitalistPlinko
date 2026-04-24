@@ -38,9 +38,12 @@ public class PlayerManager : MonoBehaviour
     {
         scoreSO.Value += pointsToAdd;
         scoreText.text = "Points: " + scoreSO.Value;
+        Player.instance.scoreSO = scoreSO.Value;
+        Player.instance.SavePlayer();
     }
     public void ResetPoints()
     {
         Player.instance.ResetPlayer();
+
     }
 }

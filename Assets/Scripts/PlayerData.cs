@@ -16,6 +16,7 @@ public class PlayerData
     public bool greenActivated;
     public bool blueActivated;
     public bool purpleActivated;
+    public float scoreSO;
 
     public PlayerData(Player player)
     {
@@ -32,6 +33,8 @@ public class PlayerData
         greenActivated = player.greenActivated;
         blueActivated = player.blueActivated;
         purpleActivated = player.purpleActivated;
+
+        scoreSO = player.scoreSO;
     }
     public PlayerData()
     {
